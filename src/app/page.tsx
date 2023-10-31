@@ -1,9 +1,14 @@
 import {
   Box,
   Button,
+  Center,
   ChakraProvider,
+  Checkbox,
   Container,
+  Input,
   Stack,
+  Switch,
+  Text,
 } from "@chakra-ui/react";
 
 export default function Home() {
@@ -12,21 +17,18 @@ export default function Home() {
       <Stack>
         <Container className="container">
           <nav>
-            <Box bg="red" fontSize="100"  className=" title">
+            <Box fontSize='9xl' >
               Next-Ts-ChakraUI
             </Box>
-            <div>
-              <form action="#">
-                <label htmlFor="switch">
-                  <input type="checkbox" />
-                  <span className="slider"></span>
-                </label>
-              </form>
-            </div>
+            <Stack>
+              <Switch colorScheme="teal" size="lg" />
+              <Checkbox colorScheme="teal" defaultChecked></Checkbox>
+              <span className="slider"></span>
+            </Stack>
           </nav>
           <section>
-            <div className="content">
-              <h1>ポートフォリオ</h1>
+            <Box className="content">
+              <Text fontSize='3xl'>ポートフォリオ</Text>
               <h3>xxxxxxxxxxxxxxxxxxxxxxxxx</h3>
               <p>tttttttttttttttttttttttttt</p>
               <Button
@@ -39,7 +41,7 @@ export default function Home() {
               >
                 お問い合わせ
               </Button>
-            </div>
+            </Box>
           </section>
         </Container>
       </Stack>
