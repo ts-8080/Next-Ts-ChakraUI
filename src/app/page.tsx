@@ -1,50 +1,23 @@
-import {
-  Box,
-  Button,
-  Center,
-  ChakraProvider,
-  Checkbox,
-  Container,
-  Input,
-  Stack,
-  Switch,
-  Text,
-} from "@chakra-ui/react";
+import { getAllTodos } from "@/api";
+import AddTask from "./components/AddTask";
+import TodoList from "./components/TodoList";
+import { log } from "console";
 
-export default function Home() {
+
+export default async function Home() {
+  const todos = await getAllTodos();
+  // console.log(todos);
+  
+
   return (
-    <ChakraProvider>
-      <Stack>
-        <Container className="container">
-          <nav>
-            <Box fontSize='9xl' >
-              Next-Ts-ChakraUI
-            </Box>
-            <Stack>
-              <Switch colorScheme="teal" size="lg" />
-              <Checkbox colorScheme="teal" defaultChecked></Checkbox>
-              <span className="slider"></span>
-            </Stack>
-          </nav>
-          <section>
-            <Box className="content">
-              <Text fontSize='3xl'>ポートフォリオ</Text>
-              <h3>xxxxxxxxxxxxxxxxxxxxxxxxx</h3>
-              <p>tttttttttttttttttttttttttt</p>
-              <Button
-                size="md"
-                height="48px"
-                width="200px"
-                border="2px"
-                borderColor="green.500"
-                className="primary-btn"
-              >
-                お問い合わせ
-              </Button>
-            </Box>
-          </section>
-        </Container>
-      </Stack>
-    </ChakraProvider>
+    <main className="flex flex-col items-center justify-center min-h-screen py-2 bg-gray-300">
+      <h1 className="text-4xl font-bold text-gray-700 -mt-32">Next-Ts-ChakraUI-Todo-App</h1>
+      <div className="w-full max-w-xl mt-5">
+        <div className="w-full px-8 py-7 bg-white shadow-md rounded-lg">
+          <AddTask />
+          <TodoList todos={todos} />
+        </div>
+      </div>
+    </main>
   );
 }
